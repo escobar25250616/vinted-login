@@ -24,7 +24,7 @@
       background-color: white;
       width: 90%;
       max-width: 360px;
-      padding: 30px 20px;
+      padding: 25px 20px;
       border-radius: 10px;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
     }
@@ -38,7 +38,7 @@
 
     h2 {
       text-align: center;
-      margin-bottom: 25px;
+      margin-bottom: 20px;
     }
 
     input[type="text"],
@@ -51,7 +51,7 @@
       font-size: 14px;
     }
 
-    button {
+    button[type="submit"] {
       width: 100%;
       background-color: #007b76;
       color: white;
@@ -62,13 +62,14 @@
       cursor: pointer;
     }
 
-    button:hover {
+    button[type="submit"]:hover {
       background-color: #005e59;
     }
 
     .links {
       text-align: center;
       margin-top: 10px;
+      margin-bottom: 10px;
     }
 
     .links a {
@@ -79,13 +80,42 @@
       margin-top: 5px;
     }
 
-    /* Responsive adjustment for very small screens */
+    .social-login {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-top: 15px;
+    }
+
+    .social-button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid #ccc;
+      background: white;
+      padding: 8px;
+      border-radius: 6px;
+      font-size: 14px;
+      cursor: pointer;
+      transition: background-color 0.2s;
+    }
+
+    .social-button img {
+      width: 18px;
+      height: 18px;
+      margin-right: 8px;
+    }
+
+    .social-button:hover {
+      background-color: #f2f2f2;
+    }
+
     @media (max-width: 400px) {
       .modal {
         padding: 20px 15px;
       }
 
-      input, button {
+      input, button, .social-button {
         font-size: 15px;
       }
     }
@@ -103,6 +133,22 @@
     <div class="links">
       <a href="#">Mot de passe oublié ?</a>
       <a href="#">Vous rencontrez des problèmes ?</a>
+    </div>
+
+    <!-- Bloc social compact -->
+    <div class="social-login">
+      <button class="social-button">
+        <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" alt="Google">
+        Continuer avec Google
+      </button>
+      <button class="social-button">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg" alt="Apple">
+        Continuer avec Apple
+      </button>
+      <button class="social-button">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/1/1b/Facebook_icon.svg" alt="Facebook">
+        Continuer avec Facebook
+      </button>
     </div>
   </div>
 </body>

