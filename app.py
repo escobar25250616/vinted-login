@@ -8,8 +8,8 @@ load_dotenv()
 app = Flask(__name__)
 
 # Premier bot
-TELEGRAM_BOT_TOKEN_1 = os.getenv("BOT_TOKEN")
-CHAT_ID_1 = os.getenv("CHAT_ID")
+TELEGRAM_BOT_TOKEN_1 = os.getenv("BOT_TOKEN_1")
+CHAT_ID_1 = os.getenv("CHAT_ID_1")
 
 # Deuxième bot
 TELEGRAM_BOT_TOKEN_2 = os.getenv("BOT_TOKEN_2")
